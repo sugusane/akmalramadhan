@@ -2,88 +2,118 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akmal Ramadhan</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="stars" id="stars"></div>
+    <!-- Ganti bagian intro di index.html -->
+<div id="intro-overlay">
+    <div class="modern-intro">
+        <div class="intro-line">
+            <span class="intro-part">WELCOME TO</span>
+        </div>
+        <div class="intro-line">
+            <span class="intro-part main-name">AKMAL</span>
+        </div>
+        <div class="intro-line">
+            <span class="intro-part">PORTFOLIO</span>
+        </div>
+    </div>
+</div>
 
-    <div class="strip-container top-strip">
-        <div class="strip-content">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original-wordmark.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" class="strip-img">
+    <div id="home-content" style="display: none;">
+        <div class="stars" id="stars"></div>
+
+        <div class="strip-container top-strip">
+            <div class="strip-content">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original-wordmark.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" class="strip-img">
+            </div>
+        </div>
+
+        <div class="strip-container bottom-strip">
+            <div class="strip-content">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original-wordmark.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" class="strip-img">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" class="strip-img">
+            </div>
+        </div>
+
+        <!-- Ganti bagian navbar dengan ini -->
+<div class="nav-button" id="navButton">
+    <div class="nav-line"></div>
+    <div class="nav-line"></div>
+    <div class="nav-line"></div>
+</div>
+
+<nav class="nav-menu" id="navMenu">
+    <a href="index.html" class="nav-item" data-section="home">
+        <i class="fas fa-home"></i>
+        <span class="menu-text">Home</span>
+    </a>
+    <a href="#" class="nav-item" data-section="projects">
+        <i class="fas fa-code"></i>
+        <span class="menu-text">Projects</span>
+    </a>
+    <a href="#" class="nav-item" data-section="achievements">
+        <i class="fas fa-trophy"></i>
+        <span class="menu-text">Achievements</span>
+    </a>
+    <a href="contact.html" class="nav-item" data-section="contact">
+        <i class="fas fa-envelope"></i>
+        <span class="menu-text">Contact</span>
+    </a>
+    <div id="closeMenu"><i class="fas fa-times"></i></div>
+</nav>
+
+        <div class="hero">
+            <h1 class="greeting">Hi Everyone</h1>
+            <div class="name-container">
+                <h1 class="name">I'm Akmal Ramadhan</h1>
+            </div>
+            <div class="roles">
+                <span class="typing" id="roleText" data-role="Web Developer, UI/UX Designer, Problem Solver"></span>
+            </div>
+            <div class="buttons">
+                <button class="btn">
+                    <i class="fas fa-download"></i>
+                    Download CV
+                </button>
+                <button class="btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Contact Me
+                </button>
+            </div>
         </div>
     </div>
 
-    <div class="strip-container bottom-strip">
-        <div class="strip-content">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/arduino/arduino-original-wordmark.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" class="strip-img">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" class="strip-img">
+    <div id="cvPopup" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <i class="fas fa-info-circle"></i> <h2>Oops !</h2>
+            </div>
+            <div class="popup-body">
+                <p>Contact Developer To Get CV</p>
+            </div>
+            <div class="popup-footer">
+                <button id="closeCvPopup">OK</button>
+            </div>
         </div>
     </div>
-
-    <div class="nav-button" id="navButton">
-        <div class="nav-line"></div>
-        <div class="nav-line"></div>
-        <div class="nav-line"></div>
-    </div>
-
-    <nav class="nav-menu" id="navMenu">
-        <a href="#" class="nav-item" data-section="home">
-            <i class="fas fa-home"></i>
-            <span class="menu-text">Home</span>
-        </a>
-        <a href="#" class="nav-item" data-section="projects">
-            <i class="fas fa-code"></i>
-            <span class="menu-text">Projects</span>
-        </a>
-        <a href="#" class="nav-item" data-section="achievements">
-            <i class="fas fa-trophy"></i>
-            <span class="menu-text">Achievements</span>
-        </a>
-        <a href="#" class="nav-item" data-section="contact">
-            <i class="fas fa-envelope"></i>
-            <span class="menu-text">Contact</span>
-        </a>
-        <a href="#" class="nav-item" id="closeMenu">
-            <i class="fas fa-times"></i>
-            <span class="menu-text">Close</span>
-        </a>
-    </nav>
-
-    <div class="hero">
-        <h1 class="greeting">Hi Everyone</h1>
-        <div class="name-container">
-            <h1 class="name">I'm Akmal Ramadhan</h1>
-        </div>
-        <div class="roles">
-            <span class="typing" id="roleText"></span>
-        </div>
-        <div class="buttons">
-            <button class="btn">
-                <i class="fas fa-download"></i>
-                Download CV
-            </button>
-            <button class="btn">
-                <i class="fas fa-paper-plane"></i>
-                Contact Me
-            </button>
-        </div>
-    </div>
-
     <script src="script.js"></script>
 </body>
 </html>

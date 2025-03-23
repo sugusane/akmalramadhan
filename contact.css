@@ -1,0 +1,390 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background: #0f0f0f;
+    color: #f5f5f5;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Contact Container */
+.contact-container {
+    background: rgba(25, 25, 25, 0.95);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(20px);
+    animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes slideUp {
+    to { transform: translateY(0); }
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #00bcd4;
+    text-align: center;
+    font-weight: 600;
+    animation: neonFlash 1.2s ease-in-out infinite alternate;
+    text-shadow: 
+        0 0 5px #00bcd4,
+        0 0 10px #00bcd4,
+        0 0 20px #00bcd4,
+        0 0 30px #00bcd4,
+        0 0 40px #00bcd4;
+}
+@keyframes neonFlash {
+    0% {
+        text-shadow: 
+            0 0 5px #00bcd4,
+            0 0 10px #00bcd4,
+            0 0 20px #00bcd4;
+        opacity: 0.9;
+    }
+    100% {
+        text-shadow: 
+            0 0 10px #00bcd4,
+            0 0 20px #00bcd4,
+            0 0 30px #00bcd4,
+            0 0 40px #00bcd4,
+            0 0 50px #00bcd4;
+        opacity: 1;
+    }
+}
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #00bcd4;
+    background: rgba(0, 188, 212, 0.05);
+    box-shadow: 0 0 12px rgba(0, 188, 212, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Button Styles */
+.form-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #00bcd4, #0097a7);
+    color: white;
+    
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 188, 212, 0.4);
+}
+
+.secondary-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.secondary-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Social Icons */
+.social-icons {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-icons a {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #00bcd4;
+    transform: translateY(-3px);
+}
+
+/* Flip Animation */
+.flip-container {
+    perspective: 1200px;
+    position: relative;
+    min-height: 400px;
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 20px;
+    padding: 2rem;
+    background: rgba(30, 30, 30, 0.95);
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+}
+
+.flip-container.flipped .flip-front {
+    transform: rotateY(-180deg);
+}
+
+.flip-container.flipped .flip-back {
+    transform: rotateY(0deg);
+}
+
+/* About Me Section */
+.about-content {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about-content p {
+    flex-grow: 1;
+}
+
+#backButton {
+    margin: 2rem auto 0;
+    width: 50%;
+    min-width: 50px;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .social-icons {
+        gap: 1rem;
+    }
+}
+
+/* Animasi Baru */
+@keyframes slideOutUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-50px); opacity: 0; }
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideOutLeft {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(50px); opacity: 0; }
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.neon-title {
+    animation: neonPulse 1.5s infinite alternate;
+}
+
+.content-wrapper {
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+/* Navbar Positioning */
+.nav-button {
+    position: fixed;
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+.nav-menu {
+    position: fixed;
+    top: 50%;
+    left: -250px;
+    transform: translateY(-50%);
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-menu.active {
+    left: 40px;
+}
+
+/* Animasi Modern untuk About Me */
+.slide-in {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+@keyframes floatIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.about-content h2 {
+    animation: floatIn 0.6s ease-out 0.2s forwards;
+}
+
+.about-content h3 {
+    animation: floatIn 0.6s ease-out 0.4s forwards;
+}
+
+.about-content p {
+    animation: floatIn 0.6s ease-out 0.6s forwards;
+}
+
+#backButton {
+    animation: floatIn 0.6s ease-out 0.8s forwards;
+}
+
+/* Efek Hover Modern */
+.nav-item:hover {
+    transform: translateX(10px);
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,0.1) 0%, 
+        rgba(255,255,255,0.05) 100%
+    );
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tambahan Efek Depth */
+.flip-container {
+    perspective: 1200px;
+}
+
+.flip-front, .flip-back {
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    transform-style: preserve-3d;
+}
+
+/* Transisi Global */
+.nav-item,
+.flip-front,
+.flip-back {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efek Kedalaman */
+.nav-menu {
+    background: rgba(22, 0, 30, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Tambahkan di contact.css */
+.error-message {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.success-message {
+    animation: slideInUp 0.5s ease-out;
+}
+
+button[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.fa-spinner {
+    margin-right: 8px;
+}

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Me - Akmal Ramadhan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body class="page-transition">
+    <!-- Navbar -->
+    <div class="nav-button" id="navButton">
+        <div class="nav-line"></div>
+        <div class="nav-line"></div>
+        <div class="nav-line"></div>
+    </div>
+
+    <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-item" data-section="home">
+            <i class="fas fa-home"></i>
+            <span class="menu-text">Home</span>
+        </a>
+        <a href="#" class="nav-item" data-section="projects">
+            <i class="fas fa-code"></i>
+            <span class="menu-text">Projects</span>
+        </a>
+        <a href="#" class="nav-item" data-section="achievements">
+            <i class="fas fa-trophy"></i>
+            <span class="menu-text">Achievements</span>
+        </a>
+        <a href="contact.html" class="nav-item" data-section="contact">
+            <i class="fas fa-envelope"></i>
+            <span class="menu-text">Contact</span>
+        </a>
+        <div id="closeMenu"><i class="fas fa-times"></i></div>
+    </nav>
+
+    <!-- Konten Utama -->
+    <div class="stars" id="stars"></div>
+    <div class="contact-container">
+        <h1 class="neon-title">Contact Me</h1>
+        <div class="flip-container">
+            <!-- Contact Form -->
+            <div class="flip-front" id="contactForm">
+                <form class="content-wrapper">
+                    <div class="form-group">
+                        <input type="email" placeholder="youremail@example.com">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Type your message here"></textarea>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="button" class="btn secondary-btn" id="toggleButton">About Me</button>
+                        <button type="submit" class="btn primary-btn">Send</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- About Me -->
+            <div class="flip-back" id="aboutMe">
+                <div class="about-content">
+                    <h2 class="slide-in">Akmal</h2>
+                    <h3 class="slide-in">Full-Stack AI User Developer</h3>
+                    <p class="slide-in">Experienced full-stack developer with ai for the Indonesia Gold Generation 2045...</p>
+                    <button class="btn primary-btn" id="backButton">Contact Me</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="social-icons">
+            <a href="https://www.instagram.com/akmalane" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@sugusane" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/AkmalWirasenaa/" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+    </div>
+
+    <script>
+        // Navbar Functionality
+        const navButton = document.getElementById('navButton');
+        const navMenu = document.getElementById('navMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        navButton.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navButton.classList.toggle('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navButton.classList.remove('active');
+        });
+
+        // Flip Animation
+        let isAnimating = false;
+        const toggleButton = document.getElementById('toggleButton');
+        const backButton = document.getElementById('backButton');
+        const flipContainer = document.querySelector('.flip-container');
+
+        toggleButton.addEventListener('click', () => {
+            if(isAnimating) return;
+            isAnimating = true;
+            
+            anime({
+                targets: '.flip-front',
+                opacity: 0,
+                translateY: -50,
+                duration: 400,
+                easing: 'easeInOutQuad',
+                complete: () => {
+                    flipContainer.classList.add('flipped');
+                    anime({
+                        targets: '.slide-in',
+                        opacity: [0, 1],
+                        translateX: [-30, 0],
+                        delay: anime.stagger(100),
+                        duration: 600,
+                        easing: 'easeOutExpo',
+                        complete: () => isAnimating = false
+                    });
+                }
+            });
+        });
+
+        backButton.addEventListener('click', () => {
+            if(isAnimating) return;
+            isAnimating = true;
+            
+            anime({
+                targets: '.slide-in',
+                opacity: 0,
+                translateX: 30,
+                duration: 400,
+                easing: 'easeInOutQuad',
+                complete: () => {
+                    flipContainer.classList.remove('flipped');
+                    anime({
+                        targets: '.flip-front',
+                        opacity: 1,
+                        translateY: 0,
+                        duration: 600,
+                        easing: 'easeOutExpo',
+                        complete: () => isAnimating = false
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <!-- Tambahkan di contact.html sebelum tag </body> -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('form');
+        const emailInput = document.querySelector('input[type="email"]');
+        const messageInput = document.querySelector('textarea');
+        const charCounter = document.createElement('span');
+        
+        // Tambahkan karakter counter
+        charCounter.style.cssText = 'position: absolute; right: 15px; bottom: 65px; color: #666; font-size: 0.8rem;';
+        charCounter.textContent = '0/2000';
+        form.appendChild(charCounter);
+    
+        // Validasi input real-time
+        messageInput.addEventListener('input', (e) => {
+            const text = e.target.value;
+            if(text.length > 2000) {
+                e.target.value = text.substring(0, 2000);
+            }
+            charCounter.textContent = `${e.target.value.length}/2000`;
+            charCounter.style.color = e.target.value.length >= 2000 ? '#ff4444' : '#666';
+        });
+    
+        // Handle form submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = emailInput.value;
+            const message = messageInput.value;
+            
+            // Validasi input
+            if(!validateEmail(email) || message.length < 10) {
+                showError('Please enter a valid email and message (min. 10 characters)');
+                return;
+            }
+            
+            try {
+                showLoading(true);
+                await sendToDiscord(email, message);
+                showSuccess('Message sent successfully!');
+                form.reset();
+                charCounter.textContent = '0/2000';
+            } catch (error) {
+                showError('Failed to send message. Please try again later.');
+            } finally {
+                showLoading(false);
+            }
+        });
+    
+        // Fungsi validasi email
+        function validateEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+    
+        // Fungsi mengirim ke Discord
+        async function sendToDiscord(email, message) {
+            const webhookURL = 'https://discord.com/api/webhooks/1353309558147252297/3kHfIL7nxy4YqId8c9FKJZSM9s-rrW2io1th8ptYbVlFbAH8kk9RjYKn63iroUZZCKX1';
+            
+            const embed = {
+                title: 'New Message from Portfolio',
+                color: 0x00bcd4,
+                fields: [
+                    {
+                        name: 'Email',
+                        value: email,
+                        inline: true
+                    },
+                    {
+                        name: 'Message',
+                        value: message.length > 1000 ? message.substring(0, 1000) + '...' : message
+                    }
+                ],
+                timestamp: new Date().toISOString()
+            };
+    
+            const response = await fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    embeds: [embed]
+                })
+            });
+    
+            if(!response.ok) throw new Error('Failed to send');
+        }
+    
+        // Fungsi UI helper
+        function showError(text) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = text;
+            errorDiv.style.cssText = 'color: #ff4444; margin-top: 10px; text-align: center;';
+            form.appendChild(errorDiv);
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+    
+        function showSuccess(text) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.textContent = text;
+            successDiv.style.cssText = 'color: #4CAF50; margin-top: 10px; text-align: center;';
+            form.appendChild(successDiv);
+            setTimeout(() => successDiv.remove(), 5000);
+        }
+    
+        function showLoading(isLoading) {
+            const submitBtn = document.querySelector('button[type="submit"]');
+            if(isLoading) {
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+            } else {
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
+                submitBtn.disabled = false;
+            }
+        }
+    });
+    </script>
+</body>
+</html> 
