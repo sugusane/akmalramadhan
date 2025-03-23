@@ -268,8 +268,87 @@ textarea {
     transform: translateX(-30px);
 }
 
+/* contact.css */
 .neon-title {
-    animation: neonPulse 1.5s infinite alternate;
+    position: relative;
+    animation: neonPulse 1.5s ease-in-out infinite, float 3s ease-in-out infinite;
+    text-shadow: 
+        0 0 5px #00bcd4,
+        0 0 10px #00bcd4,
+        0 0 20px #00bcd4,
+        0 0 30px #00bcd4,
+        0 0 40px #00bcd4;
+}
+
+@keyframes neonPulse {
+    0% {
+        text-shadow: 
+            0 0 5px #00bcd4,
+            0 0 10px #00bcd4,
+            0 0 15px #00bcd4,
+            0 0 20px #00bcd4,
+            0 0 25px #00bcd4,
+            0 0 30px #00bcd4;
+    }
+    50% {
+        text-shadow: 
+            0 0 10px #00bcd4,
+            0 0 20px #00bcd4,
+            0 0 30px #00bcd4,
+            0 0 40px #00bcd4,
+            0 0 50px #00bcd4,
+            0 0 60px #00bcd4;
+    }
+    100% {
+        text-shadow: 
+            0 0 5px #00bcd4,
+            0 0 10px #00bcd4,
+            0 0 15px #00bcd4,
+            0 0 20px #00bcd4,
+            0 0 25px #00bcd4,
+            0 0 30px #00bcd4;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Tambahkan efek glow tambahan */
+.neon-title::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(0,188,212,0.3) 0%, transparent 70%);
+    animation: glowMove 4s linear infinite;
+    z-index: -1;
+    filter: blur(20px);
+}
+
+@keyframes glowMove {
+    0% {
+        transform: rotate(0deg) translateX(0) scale(1);
+    }
+    25% {
+        transform: rotate(2deg) translateX(10px) scale(1.1);
+    }
+    50% {
+        transform: rotate(0deg) translateX(0) scale(1);
+    }
+    75% {
+        transform: rotate(-2deg) translateX(-10px) scale(0.9);
+    }
+    100% {
+        transform: rotate(0deg) translateX(0) scale(1);
+    }
 }
 
 .content-wrapper {
